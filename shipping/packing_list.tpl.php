@@ -75,6 +75,8 @@
 	<br class="item_divider" />
 	
 	<?php $this->dtgItem->Render(); ?>
+	<?php $this->lblNote->Render(); ?>
+
 	<br class="item_divider" />
 	<br class="item_divider" />
 	<br class="item_divider" />

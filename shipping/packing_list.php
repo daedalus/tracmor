@@ -37,6 +37,7 @@
 		protected $lblCourier;
 		protected $lblLogo;
 		protected $lblTerms;
+		protected $lblNote;
 		
 		// Datagrid
 		protected $dtgItem;
@@ -54,6 +55,7 @@
 			$this->dtgItem_Create();
 			$this->lblLogo_Create();
 			$this->lblTerms_Create();
+			$this->lblNote_Create();
 		}
 		
 		protected function SetupShipment() {
@@ -133,6 +135,15 @@
 			$this->lblCourier->Name = 'Via';
 			$this->lblCourier->Text = ($this->objShipment->CourierId) ? $this->lblCourier->Text = $this->objShipment->Courier->__toString() : 'Other';
 		}
+
+		// Create and Setup lblNote
+		protected function lblNote_Create(){
+                        $this->lblNote = new QLabel($this);
+                        $this->lblNote->Name = 'Notes';
+                        if ($this->objShipment->Transaction->Note) {
+                                $this->lblNote->Text = $this->objShipment->Transaction->Note;
+                        }
+                }
 		
 		// Create and Setup dtgItem
 		protected function dtgItem_Create() {
